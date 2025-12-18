@@ -1,4 +1,4 @@
-# robots.txt for https://abdullahansari.dev
+# robots.txt for https://abdullahansarii.netlify.app/
 
 User-agent: *
 Allow: /
@@ -14,7 +14,8 @@ Disallow: /assets/temp/
 Disallow: /private/
 
 # Sitemap location
-Sitemap: https://abdullahansari.dev/sitemap.xml
+Sitemap: https://abdullahansarii.netlify.app/sitemap.xml
 
 # Crawl-delay for better server performance
+
 Crawl-delay: 1

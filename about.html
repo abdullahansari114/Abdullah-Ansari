@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Abdullah Ansari</title>
+    <link rel="icon" type="img/jpg" href="assets/img/AbdullahAnsari.jpg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      
+
+.detail-label {
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.detail-value {
+    color: #e0e0e0;
+    font-size: 1rem;
+    word-break: break-all; /* Yeh email ko break karega agar zaroorat ho */
+    overflow-wrap: anywhere; /* Yeh ensure karega ke text container se bahar na jaye */
+}
+
+/* Mobile devices ke liye */
+@media (max-width: 768px) {
+    .about-details-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .detail-item {
+        padding: 15px;
+    }
+    
+    .detail-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .detail-value {
+        font-size: 0.85rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="page-transition"></div>
+
+    <nav class="nav">
+        <div class="logo">
+            <a href="">AA</a>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <h1 class="about-title">About Me</h1>
+        <div class="about-subtitle">I'm Full-Stack Developer In Progress, Android & iOS Developer and Website Developer</div>
+    </section>
+
+    <section class="about-main">
+        <div class="about-intro">
+            <p>I specialize in transforming your vision into reality through modern web and mobile solutions. From building lightning-fast, responsive websites to crafting seamless mobile experiences for Android and iOS, I deliver digital products that not only look great but perform flawlessly. Whether you need a dynamic website or a feature-rich mobile app, I create intuitive and conversion-focused solutions that elevate your business and engage your audience.</p>
+        </div>
+
+        <div class="about-details-grid">
+            <div class="detail-item">
+                <span class="detail-label">Email:</span>
+                <span class="detail-value">abdullahansari6236@gmail.com</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Phone:</span>
+                <span class="detail-value">+92 320 0214533</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">City:</span>
+                <span class="detail-value">Karachi</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Remote Work:</span>
+                <span class="detail-value">Available</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Completed Projects:</span>
+                <span class="detail-value">20+</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">LinkedIn:</span>
+                <span class="detail-value"><a href="https://www.linkedin.com/in/abdullah-ansari-138088394" style="color: var(--primary-light);">Abdullah Ansari</a></span>
+            </div>
+        </div>
+
+        <div class="hire-me-section">
+            <a href="contact.html" class="btn btn-primary">Hire Me</a>
+        </div>
+    </section>
+
+    <section class="skills-bars-section">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 40px;">Technical Skills</h2>
+        <div class="skills-bars-grid">
+            <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                    <span class="skill-name">HTML</span>
+                    <span class="skill-percentage">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="95"></div>
+                </div>
+            </div>
+
+            <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                    <span class="skill-name">CSS</span>
+                    <span class="skill-percentage">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="95"></div>
+                </div>
+            </div>
+
+            <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-percentage">75%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="75"></div>
+                </div>
+            </div>
+
+            <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                    <span class="skill-name">PHP</span>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="85"></div>
+                </div>
+            </div>
+
+            <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                    <span class="skill-name">Mobile Development (Android/iOS)</span>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="85"></div>
+                </div>
+            </div>
+
+            <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                    <span class="skill-name">ASP.NET</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="90"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education-section">
+        <h2 class="section-title-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            Education
+        </h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        2023 - 2026
+                    </div>
+                    <h3>Advanced Diploma in Software Engineering</h3>
+                    <p class="timeline-institute">APTECH Learning North Nazimabad</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        2020 - 2022
+                    </div>
+                    <h3>Matric in Computer Science</h3>
+                    <p class="timeline-institute">Karachi Academy School</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        2022 - 2024
+                    </div>
+                    <h3>Intermediate in Commerce</h3>
+                    <p class="timeline-institute">Government College Premier</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        2024 - 2026
+                    </div>
+                    <h3>Associate Degree of Commerce</h3>
+                    <p class="timeline-institute">Karachi University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Abdullah Ansari. Crafted with passion and code.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

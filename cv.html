@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Abdullah Ansari</title>
+    <link rel="icon" type="img/jpg" href="assets/img/AbdullahAnsari.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .cv-header {
+            background: linear-gradient(135deg, #7C3AED, #A855F7);
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .cv-name {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .cv-title {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .cv-contact {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .cv-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cv-body {
+            padding: 50px;
+        }
+
+        .cv-section {
+            margin-bottom: 40px;
+        }
+
+        .cv-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #7C3AED;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #A855F7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cv-summary {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        .cv-experience-item,
+        .cv-education-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #A855F7;
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cv-item-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .cv-item-company {
+            font-size: 16px;
+            color: #7C3AED;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cv-item-date {
+            font-size: 14px;
+            color: #666;
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .cv-item-description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .cv-item-description ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .cv-item-description li {
+            margin-bottom: 8px;
+        }
+
+        .cv-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cv-skill-category {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #A855F7;
+        }
+
+        .cv-skill-category h4 {
+            font-size: 16px;
+            color: #7C3AED;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .cv-skill-category ul {
+            list-style: none;
+        }
+
+        .cv-skill-category li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .cv-skill-category li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #A855F7;
+            font-weight: bold;
+        }
+
+        .cv-projects {
+            display: grid;
+            gap: 20px;
+        }
+
+        .cv-project-item {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #A855F7;
+        }
+
+        .cv-project-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .cv-project-description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .cv-project-tech {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cv-tech-tag {
+            background: #7C3AED;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .cv-certifications li,
+        .cv-achievements li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .cv-certifications li::before,
+        .cv-achievements li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #A855F7;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .download-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #7C3AED, #A855F7);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-back {
+            background: white;
+            color: #7C3AED;
+            border: 2px solid #7C3AED;
+        }
+
+        .btn-back:hover {
+            background: #7C3AED;
+            color: white;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .download-buttons {
+                display: none;
+            }
+            .cv-header {
+                padding: 30px;
+            }
+            .cv-body {
+                padding: 30px;
+            }
+            .cv-section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .cv-header {
+                padding: 30px 20px;
+            }
+            .cv-name {
+                font-size: 32px;
+            }
+            .cv-title {
+                font-size: 18px;
+            }
+            .cv-body {
+                padding: 30px 20px;
+            }
+            .cv-contact {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .download-buttons {
+                position: static;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-buttons">
+        <a href="index.html" class="btn-download btn-back">← Back to Portfolio</a>
+        <button onclick="window.print()" class="btn-download">📄 Download PDF</button>
+    </div>
+
+    <div class="cv-container" id="cv-content">
+        <!-- HEADER -->
+        <div class="cv-header">
+            <h1 class="cv-name">ABDULLAH ANSARI</h1>
+            <p class="cv-title">Full Stack Developer In Progress | Website Developer | Mobile App Developer</p>
+            <div class="cv-contact">
+                <div class="cv-contact-item">
+                    <span>📧</span>
+                    <span>abdullahansari6236@gmail.com</span>
+                </div>
+                <div class="cv-contact-item">
+                    <span>📞</span>
+                    <span>+92 320 0214533</span>
+                </div>
+                <div class="cv-contact-item">
+                    <span>📍</span>
+                    <span>Karachi, Pakistan</span>
+                </div>
+                <div class="cv-contact-item">
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="cv-body">
+            <!-- PROFESSIONAL SUMMARY -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Professional Summary</h2>
+                <p class="cv-summary">
+                    Results-driven Full Stack Developer with 1 years of experience in Freelancing and building high-performance web applications and mobile solutions. Specialized in eCommerce platforms, mobile applications for iOS and Android, and conversion-focused user interfaces. Successfully delivered 20+ projects with demonstrated ability to optimize website performance by 10x and handle $100K+ monthly transactions. Passionate about leveraging modern technologies to create innovative digital solutions that drive business growth and enhance user experience.
+                </p>
+            </div>
+
+            <!-- TECHNICAL SKILLS -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Technical Skills</h2>
+                <div class="cv-skills-grid">
+                    <div class="cv-skill-category">
+                        <h4>Frontend Development</h4>
+                        <ul>
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>Responsive Web Design</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="cv-skill-category">
+                        <h4>Backend Development</h4>
+                        <ul>
+                            <li>PHP & Laravel</li>
+                            <li>C# & ASP.NET</li>
+                            <li>SQLServer, MySQL</li>
+                            <li>RESTful API Development</li>
+                        </ul>
+                    </div>
+                    <div class="cv-skill-category">
+                        <h4>Mobile Development</h4>
+                        <ul>
+                            <li>iOS Development</li>
+                            <li>Android Development</li>
+                            <li>Mobile UI/UX Design</li>
+                        </ul>
+                    </div>
+                    <div class="cv-skill-category">
+                        <h4>Design & Tools</h4>
+                        <ul>
+                            <li>UI/UX Design Principles</li>
+                            <li>Git, GitHub</li>
+                        </ul>
+                    </div>
+                     <div class="cv-skill-category">
+                        <h4>Microsoft Office</h4>
+                        <ul>
+                            <li>Microsoft Word</li>
+                            <li>Microsoft Excel</li>
+                            <li>Microsoft Powerpoint</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFESSIONAL EXPERIENCE -->
+            
+            <!-- EDUCATION -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Education</h2>
+                
+                <div class="cv-education-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Advanced Diploma in Software Engineering</div>
+                            <div class="cv-item-company">APTECH Learning North Nazimabad</div>
+                        </div>
+                        <div class="cv-item-date">2023 - 2026</div>
+                    </div>
+                </div>
+
+                <div class="cv-education-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Associate Degree of Commerce</div>
+                            <div class="cv-item-company">Karachi University</div>
+                        </div>
+                        <div class="cv-item-date">2024 - 2026</div>
+                    </div>
+                </div>
+
+                <div class="cv-education-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Intermediate in Commerce</div>
+                            <div class="cv-item-company">Government College Premier</div>
+                        </div>
+                        <div class="cv-item-date">2022 - 2024</div>
+                    </div>
+                </div>
+
+                <div class="cv-education-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Matriculation in Computer Science</div>
+                            <div class="cv-item-company">Karachi Academy School</div>
+                        </div>
+                        <div class="cv-item-date">2020 - 2022</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACHIEVEMENTS -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Key Achievements</h2>
+                <ul class="cv-achievements">
+                    <li>Successfully delivered 20+ projects with 98% client satisfaction rate</li>
+                    <li>Built eCommerce platforms handling $100,000+ monthly transactions</li>
+                    <li>Achieved 45% improvement in user retention through UX optimization</li>
+                </ul>
+            </div>
+
+            <!-- ADDITIONAL SKILLS -->
+            <div class="cv-section">
+                <h2 class="cv-section-title">Additional Skills & Interests</h2>
+                <div class="cv-skills-grid">
+                    <div class="cv-skill-category">
+                        <h4>Soft Skills</h4>
+                        <ul>
+                            <li>Problem Solving</li>
+                            <li>Team Collaboration</li>
+                            <li>Client Communication</li>
+                            <li>Time Management</li>
+                        </ul>
+                    </div>
+                    <div class="cv-skill-category">
+                        <h4>Languages</h4>
+                        <ul>
+                            <li>English (Fluent)</li>
+                            <li>Urdu (Native)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

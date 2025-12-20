@@ -198,8 +198,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-
-
 // ================= SCROLL ANIMATIONS =================
 const observerOptions = { 
     threshold: 0.1, 
@@ -281,10 +279,19 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.stat-card').forEach(card => statsObserver.observe(card));
 
-// ================= PAGE TRANSITION =================
+// ================= PAGE TRANSITION WITH NO BACK HISTORY =================
 const transition = document.querySelector('.page-transition');
 let isTransitioning = false;
 
+// MAIN SOLUTION: Clear all history on page load
+window.addEventListener('load', () => {
+    // Replace current state to clear previous history
+    if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.href);
+    }
+});
+
+// Handle navigation links with transition
 document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (href && !href.startsWith('#') && !href.startsWith('http')) {
@@ -296,13 +303,17 @@ document.querySelectorAll('a[href]').forEach(link => {
             transition.classList.add('active');
             
             setTimeout(() => {
-                location.href = href;
+                // Use location.replace() to not add to history
+                window.location.replace(href);
             }, 900);
         });
     }
 });
 
-
+// Prevent back navigation - force user to exit website
+window.addEventListener('popstate', function(e) {
+    window.history.go(1);
+});
 
 // ================= SKILL BARS ANIMATION =================
 const skillBarsObserver = new IntersectionObserver((entries) => {

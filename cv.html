@@ -1,508 +1,632 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Abdullah Ansari</title>
-    <link rel="icon" type="img/jpg" href="assets/img/AbdullahAnsari.jpg">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-
-        .cv-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 30px rgba(0,0,0,0.1);
-        }
-
-        .cv-header {
-            background: linear-gradient(135deg, #7C3AED, #A855F7);
-            color: white;
-            padding: 50px;
-            text-align: center;
-        }
-
-        .cv-name {
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .cv-title {
-            font-size: 24px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            opacity: 0.95;
-        }
-
-        .cv-contact {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            font-size: 14px;
-        }
-
-        .cv-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cv-body {
-            padding: 50px;
-        }
-
-        .cv-section {
-            margin-bottom: 40px;
-        }
-
-        .cv-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .cv-section-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #7C3AED;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #A855F7;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cv-summary {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #333;
-            text-align: justify;
-        }
-
-        .cv-experience-item,
-        .cv-education-item {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 3px solid #A855F7;
-        }
-
-        .cv-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .cv-item-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a1a;
-        }
-
-        .cv-item-company {
-            font-size: 16px;
-            color: #7C3AED;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .cv-item-date {
-            font-size: 14px;
-            color: #666;
-            background: #f0f0f0;
-            padding: 5px 15px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .cv-item-description {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        .cv-item-description ul {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-
-        .cv-item-description li {
-            margin-bottom: 8px;
-        }
-
-        .cv-skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .cv-skill-category {
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #A855F7;
-        }
-
-        .cv-skill-category h4 {
-            font-size: 16px;
-            color: #7C3AED;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .cv-skill-category ul {
-            list-style: none;
-        }
-
-        .cv-skill-category li {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 8px;
-            padding-left: 18px;
-            position: relative;
-        }
-
-        .cv-skill-category li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #A855F7;
-            font-weight: bold;
-        }
-
-        .cv-projects {
-            display: grid;
-            gap: 20px;
-        }
-
-        .cv-project-item {
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #A855F7;
-        }
-
-        .cv-project-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-
-        .cv-project-description {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 12px;
-        }
-
-        .cv-project-tech {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .cv-tech-tag {
-            background: #7C3AED;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .cv-certifications li,
-        .cv-achievements li {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .cv-certifications li::before,
-        .cv-achievements li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #A855F7;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .download-buttons {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
-
-        .btn-download {
-            background: linear-gradient(135deg, #7C3AED, #A855F7);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
-        }
-
-        .btn-back {
-            background: white;
-            color: #7C3AED;
-            border: 2px solid #7C3AED;
-        }
-
-        .btn-back:hover {
-            background: #7C3AED;
-            color: white;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .cv-container {
-                box-shadow: none;
-                max-width: 100%;
-            }
-            .download-buttons {
-                display: none;
-            }
-            .cv-header {
-                padding: 30px;
-            }
-            .cv-body {
-                padding: 30px;
-            }
-            .cv-section {
-                page-break-inside: avoid;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .cv-header {
-                padding: 30px 20px;
-            }
-            .cv-name {
-                font-size: 32px;
-            }
-            .cv-title {
-                font-size: 18px;
-            }
-            .cv-body {
-                padding: 30px 20px;
-            }
-            .cv-contact {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            .download-buttons {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdullah Ansari — Full Stack Developer CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0C14;
+  --bg2:#0F1020;
+  --bg3:#13152A;
+  --bg4:#181A30;
+  --cyan:#00FFD4;
+  --cyan2:#00E8BF;
+  --cyan-dim:rgba(0,255,212,0.12);
+  --cyan-line:rgba(0,255,212,0.18);
+  --orange:#FF6B35;
+  --white:#FFFFFF;
+  --text:#C8D0E8;
+  --text-dim:#7A84A0;
+  --line:rgba(255,255,255,0.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+.toolbar{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 40px;
+  background:rgba(11,12,20,0.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.tb-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:15px;
+  color:var(--white);letter-spacing:0.04em;
+  display:flex;align-items:center;gap:8px;
+}
+.tb-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:dp 2s ease-in-out infinite;}
+@keyframes dp{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.tb-right{display:flex;gap:8px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:5px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:all 0.22s;text-decoration:none;border:none;}
+.btn-ghost{background:transparent;color:var(--text-dim);border:1px solid rgba(255,255,255,0.1);}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.04);}
+.btn-cyan{background:var(--cyan);color:#000;font-weight:700;box-shadow:0 4px 18px rgba(0,255,212,0.25);}
+.btn-cyan:hover{background:var(--cyan2);transform:translateY(-1px);}
+.page{max-width:960px;margin:0 auto;padding:72px 24px 60px;}
+.hero{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:48px 52px;margin-bottom:12px;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,212,0.07) 0%,transparent 60%);pointer-events:none;}
+.hero-inner{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:flex-start;position:relative;z-index:1;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;}
+.hero-tag-line{width:24px;height:1px;background:var(--cyan);}
+.hero-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(36px,5vw,56px);color:var(--white);line-height:1.0;letter-spacing:-0.02em;margin-bottom:8px;}
+.hero-name em{font-style:normal;color:transparent;-webkit-text-stroke:1px var(--cyan);}
+.hero-role{font-family:'Syne',sans-serif;font-weight:600;font-size:clamp(13px,1.6vw,16px);color:var(--cyan);letter-spacing:0.04em;margin-bottom:16px;}
+.hero-bio{font-size:14px;line-height:1.8;color:var(--text-dim);max-width:520px;margin-bottom:28px;}
+.hero-bio strong{color:var(--text);font-weight:500;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin-bottom:28px;}
+.citem{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-dim);}
+.citem a{color:var(--text-dim);text-decoration:none;transition:color 0.2s;}
+.citem a:hover{color:var(--cyan);}
+.cicon{width:24px;height:24px;border-radius:5px;background:var(--cyan-dim);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--cyan);}
+.badges{display:flex;flex-wrap:wrap;gap:6px;}
+.badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:4px;border:1px solid var(--cyan-line);color:var(--cyan);background:var(--cyan-dim);}
+.badge.or{border-color:rgba(255,107,53,0.3);color:var(--orange);background:rgba(255,107,53,0.08);}
+.badge.wh{border-color:rgba(255,255,255,0.12);color:var(--text-dim);background:transparent;}
+.hero-photo{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.photo-frame{width:120px;height:120px;border-radius:14px;border:2px solid var(--cyan-line);background:var(--bg3);overflow:hidden;box-shadow:0 0 30px rgba(0,255,212,0.1);}
+.photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,var(--bg3),rgba(0,255,212,0.05));}
+.photo-ph-init{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;color:var(--cyan);opacity:0.5;}
+.photo-status{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--cyan);text-transform:uppercase;}
+.sdot{width:6px;height:6px;border-radius:50%;background:#00FF88;box-shadow:0 0 6px #00FF88;animation:dp 1.8s ease-in-out infinite;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-top:1px solid var(--line);margin-top:36px;position:relative;z-index:1;}
+.stat-box{padding:22px 20px;text-align:center;border-right:1px solid var(--line);background:var(--bg3);}
+.stat-box:first-child{border-radius:0 0 0 12px;}
+.stat-box:last-child{border-right:none;border-radius:0 0 12px 0;}
+.stat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:28px;color:var(--cyan);line-height:1;margin-bottom:5px;text-shadow:0 0 20px rgba(0,255,212,0.3);}
+.stat-l{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);}
+.layout{display:grid;grid-template-columns:1fr 280px;gap:12px;align-items:start;}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:32px 36px;margin-bottom:12px;}
+.card:last-child{margin-bottom:0;}
+.card-sm{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:12px;}
+.card-sm:last-child{margin-bottom:0;}
+.sec-title{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);margin-bottom:26px;}
+.sec-title::before{content:'';width:3px;height:18px;background:var(--cyan);border-radius:2px;flex-shrink:0;}
+.sec-title-sm{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.sec-title-sm::after{content:'';flex:1;height:1px;background:var(--line);}
+.summary p{font-size:14px;line-height:1.85;color:var(--text-dim);font-weight:300;}
+.summary p strong{color:var(--text);font-weight:500;}
+.sum-bullets{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px;}
+.sum-bullets li{font-size:13.5px;line-height:1.7;color:var(--text-dim);padding-left:20px;position:relative;}
+.sum-bullets li::before{content:'▸';position:absolute;left:0;color:var(--cyan);font-size:11px;top:3px;}
+.sum-bullets li strong{color:var(--text);font-weight:500;}
+.work-item{padding-bottom:28px;margin-bottom:28px;border-bottom:1px solid var(--line);}
+.work-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.work-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px;}
+.work-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:var(--white);}
+.work-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;padding:4px 11px;border-radius:3px;flex-shrink:0;white-space:nowrap;}
+.wb-active{background:rgba(0,255,136,0.12);color:#00FF88;border:1px solid rgba(0,255,136,0.2);}
+.wb-done{background:rgba(255,255,255,0.04);color:var(--text-dim);border:1px solid var(--line);}
+.wb-client{background:rgba(255,107,53,0.1);color:var(--orange);border:1px solid rgba(255,107,53,0.2);}
+.wb-award{background:rgba(255,215,0,0.1);color:#FFD700;border:1px solid rgba(255,215,0,0.25);}
+.work-company{font-size:13px;font-weight:500;color:var(--cyan);margin-bottom:4px;letter-spacing:0.02em;}
+.work-date{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);letter-spacing:0.05em;margin-bottom:12px;}
+.work-bullets{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.work-bullets li{font-size:13.5px;line-height:1.75;color:var(--text-dim);padding-left:18px;position:relative;}
+.work-bullets li::before{content:'—';position:absolute;left:0;color:var(--cyan);font-size:11px;font-weight:700;top:2px;}
+.work-bullets li strong{color:var(--text);font-weight:500;}
+.work-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}
+.wtag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:var(--cyan-dim);color:var(--cyan);border:1px solid var(--cyan-line);}
+.wtag.or{background:rgba(255,107,53,0.08);color:var(--orange);border-color:rgba(255,107,53,0.2);}
+/* Award highlight box */
+.award-box{
+  margin-top:14px;
+  display:flex;align-items:flex-start;gap:10px;
+  padding:12px 16px;
+  background:rgba(255,215,0,0.06);
+  border:1px solid rgba(255,215,0,0.2);
+  border-radius:8px;
+}
+.award-ic{font-size:18px;flex-shrink:0;margin-top:1px;}
+.award-txt{font-size:12.5px;line-height:1.6;color:var(--text-dim);}
+.award-txt strong{color:#FFD700;font-weight:600;display:block;font-size:13px;margin-bottom:2px;}
+/* Client quote box */
+.quote-box{
+  margin-top:14px;
+  padding:12px 16px;
+  background:rgba(0,255,212,0.04);
+  border-left:3px solid var(--cyan);
+  border-radius:0 8px 8px 0;
+}
+.quote-txt{font-size:12.5px;line-height:1.7;color:var(--text-dim);font-style:italic;}
+.quote-txt strong{color:var(--cyan);font-style:normal;}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.proj-card{background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:18px;transition:border-color 0.25s;}
+.proj-card:hover{border-color:var(--cyan-line);}
+.proj-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px;}
+.proj-name{font-family:'Syne',sans-serif;font-weight:700;font-size:13.5px;color:var(--white);}
+.proj-cat{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;flex-shrink:0;}
+.pc-e{background:rgba(0,255,212,0.1);color:var(--cyan);border:1px solid var(--cyan-line);}
+.pc-m{background:rgba(255,107,53,0.1);color:var(--orange);border:1px solid rgba(255,107,53,0.2);}
+.pc-w{background:rgba(168,85,247,0.1);color:#C084FC;border:1px solid rgba(168,85,247,0.2);}
+.pc-d{background:rgba(59,130,246,0.1);color:#93C5FD;border:1px solid rgba(59,130,246,0.2);}
+.proj-desc{font-size:12px;line-height:1.7;color:var(--text-dim);margin-bottom:10px;}
+.proj-tech{display:flex;flex-wrap:wrap;gap:4px;}
+.pt{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:3px;padding:2px 7px;letter-spacing:0.05em;}
+.proj-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;letter-spacing:0.05em;color:var(--cyan);text-decoration:none;margin-top:8px;transition:gap 0.2s;}
+.proj-link:hover{gap:8px;}
+.edu-item{display:flex;gap:16px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--line);}
+.edu-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.edu-yr{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;color:var(--text-dim);flex-shrink:0;min-width:75px;padding-top:3px;}
+.edu-deg{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--white);margin-bottom:3px;}
+.edu-school{font-size:12.5px;color:var(--cyan);font-weight:500;}
+.edu-note{font-size:11.5px;color:var(--text-dim);margin-top:4px;}
+.skill-group{margin-bottom:18px;}
+.skill-group:last-child{margin-bottom:0;}
+.sg-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:9px;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;}
+.chip{font-size:11.5px;font-weight:500;padding:5px 11px;border-radius:4px;background:var(--bg3);color:var(--text);border:1px solid var(--line);transition:all 0.2s;}
+.chip.hot{background:var(--cyan-dim);color:var(--cyan);border-color:var(--cyan-line);}
+.prof-item{margin-bottom:13px;}
+.prof-item:last-child{margin-bottom:0;}
+.prof-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.prof-nm{font-size:12.5px;color:var(--text);font-weight:500;}
+.prof-pct{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);}
+.prof-track{height:3px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden;}
+.prof-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--cyan2),var(--cyan));box-shadow:0 0 6px rgba(0,255,212,0.4);}
+.ach-list{display:flex;flex-direction:column;gap:9px;}
+.ach-card{display:flex;align-items:flex-start;gap:10px;padding:12px;background:var(--bg3);border:1px solid var(--line);border-radius:8px;}
+.ach-card.gold{border-color:rgba(255,215,0,0.25);background:rgba(255,215,0,0.04);}
+.ach-ic{width:26px;height:26px;border-radius:6px;background:var(--cyan-dim);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.ach-ic.gold{background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.25);}
+.ach-txt{font-size:12px;line-height:1.65;color:var(--text-dim);}
+.ach-txt strong{color:var(--text);display:block;font-size:12.5px;margin-bottom:1px;}
+.ach-txt strong.gold{color:#FFD700;}
+.lang-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);}
+.lang-item:last-child{border-bottom:none;}
+.lang-nm{font-size:13px;font-weight:500;color:var(--text);}
+.lang-dots{display:flex;gap:3px;}
+.ldot{width:8px;height:8px;border-radius:50%;background:var(--cyan-dim);border:1px solid var(--cyan-line);}
+.ldot.fill{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 4px rgba(0,255,212,0.4);}
+.soft-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.soft-item{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-dim);padding:8px 10px;background:var(--bg3);border:1px solid var(--line);border-radius:6px;}
+.soft-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+.aptech-sems{display:flex;flex-direction:column;gap:8px;}
+.sem-row{display:flex;gap:8px;align-items:flex-start;}
+.sem-num{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:var(--cyan);background:var(--cyan-dim);border:1px solid var(--cyan-line);padding:3px 7px;border-radius:3px;flex-shrink:0;margin-top:1px;}
+.sem-chips{display:flex;flex-wrap:wrap;gap:4px;}
+.sem-chip{font-size:10.5px;color:var(--text-dim);background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:3px;padding:2px 7px;}
+.sem-chip.hot{color:var(--cyan);background:var(--cyan-dim);border-color:var(--cyan-line);}
+.cta-card{background:linear-gradient(135deg,rgba(0,255,212,0.08),rgba(0,255,212,0.03));border:1px solid var(--cyan-line);border-radius:14px;padding:28px;text-align:center;}
+.cta-title{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--white);margin-bottom:8px;}
+.cta-sub{font-size:13px;color:var(--text-dim);margin-bottom:20px;line-height:1.65;}
+.cta-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.cta-wa{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#075E54,#25D366);color:#fff;padding:11px 22px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.25s;}
+.cta-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3);}
+.cta-em{display:inline-flex;align-items:center;gap:7px;background:var(--cyan);color:#000;padding:11px 22px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.25s;}
+.cta-em:hover{background:var(--cyan2);transform:translateY(-2px);}
+.social-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap;}
+.soc-link{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-dim);text-decoration:none;padding:7px 14px;background:var(--bg3);border:1px solid var(--line);border-radius:6px;transition:all 0.2s;}
+.soc-link:hover{color:var(--cyan);border-color:var(--cyan-line);}
+@media print{
+  body{background:#0B0C14!important;}
+  .toolbar{display:none;}
+  .page{padding:0;max-width:100%;}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+}
+@media(max-width:780px){
+  .layout{grid-template-columns:1fr;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-photo{flex-direction:row;justify-content:flex-start;}
+  .hero{padding:32px 24px;}
+  .card{padding:24px;}
+  .card-sm{padding:18px 20px;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .proj-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:540px){
+  .toolbar{padding:10px 16px;}
+  .hero-name{font-size:30px;}
+  .page{padding:64px 12px 40px;}
+  .cta-btns{flex-direction:column;}
+  .soft-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
-    <div class="download-buttons">
-        <a href="index.html" class="btn-download btn-back">← Back to Portfolio</a>
-        <button onclick="window.print()" class="btn-download">📄 Download PDF</button>
-    </div>
 
-    <div class="cv-container" id="cv-content">
-        <!-- HEADER -->
-        <div class="cv-header">
-            <h1 class="cv-name">ABDULLAH ANSARI</h1>
-            <p class="cv-title">Full Stack Developer In Progress | Website Developer | Mobile App Developer</p>
-            <div class="cv-contact">
-                <div class="cv-contact-item">
-                    <span>📧</span>
-                    <span>abdullahansari6236@gmail.com</span>
-                </div>
-                <div class="cv-contact-item">
-                    <span>📞</span>
-                    <span>+92 320 0214533</span>
-                </div>
-                <div class="cv-contact-item">
-                    <span>📍</span>
-                    <span>Karachi, Pakistan</span>
-                </div>
-                <div class="cv-contact-item">
-                   
-                </div>
+<div class="toolbar">
+  <div class="tb-logo"><div class="tb-dot"></div>Abdullah Ansari — CV</div>
+  <div class="tb-right">
+    <a href="index.html" class="btn btn-ghost">← Back to Portfolio</a>
+    <button onclick="window.print()" class="btn btn-cyan">⬇ Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag"><div class="hero-tag-line"></div>Full Stack Developer · Karachi, Pakistan</div>
+        <h1 class="hero-name">Abdullah<br><em>Ansari</em></h1>
+        <div class="hero-role">Web · Mobile · eCommerce · Backend Systems</div>
+        <p class="hero-bio">
+          Full Stack Developer based in Karachi with <strong>hands-on experience building real, deployed systems</strong> — from eCommerce platforms and admin dashboards to cross-platform mobile apps. Recognized by APTECH as <strong>Student of the Project</strong> for enterprise-level ASP.NET development. I write clean code, meet deadlines, and build things that actually work.
+        </p>
+        <div class="contact-grid">
+          <div class="citem"><div class="cicon">✉</div><a href="mailto:abdullahansari6236@gmail.com">abdullahansari6236@gmail.com</a></div>
+          <div class="citem"><div class="cicon">☎</div><a href="tel:+923200214533">+92 320 0214533</a></div>
+          <div class="citem"><div class="cicon">🌐</div><a href="https://abdullahansarii.netlify.app" target="_blank">abdullahansarii.netlify.app</a></div>
+          <div class="citem"><div class="cicon">⎇</div><a href="https://github.com/abdullahansari114" target="_blank">github.com/abdullahansari114</a></div>
+          <div class="citem"><div class="cicon">in</div><a href="https://linkedin.com/in/abdullah-ansari-138088394" target="_blank">LinkedIn Profile</a></div>
+          <div class="citem"><div class="cicon">📍</div><span>Karachi, Pakistan · Open to On-site &amp; Remote</span></div>
+        </div>
+        <div class="badges">
+          <span class="badge">ASP.NET Core</span>
+          <span class="badge">Flutter · iOS · Android</span>
+          <span class="badge">PHP · Laravel</span>
+          <span class="badge">React · Angular</span>
+          <span class="badge or">🏆 APTECH Student of the Project</span>
+          <span class="badge wh">20+ Live Projects</span>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <img src="assets/img/abdullah ansari.png" alt="Abdullah Ansari"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-ph" style="display:none">
+            <div class="photo-ph-init">AA</div>
+          </div>
+        </div>
+        <div class="photo-status"><div class="sdot"></div>Available to Hire</div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-n">10+</div><div class="stat-l">Projects Delivered</div></div>
+      <div class="stat-box"><div class="stat-n">🏆</div><div class="stat-l">APTECH Project Award Nominee</div></div>
+      <div class="stat-box"><div class="stat-n">100K+</div><div class="stat-l">eCommerce Scale Handled</div></div>
+    </div>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+    <div class="col-main">
+
+      <!-- SUMMARY -->
+      <div class="card">
+        <div class="sec-title">Professional Summary</div>
+        <div class="summary">
+          <p>I am a <strong>Full Stack Developer</strong> who builds complete, working systems — not just demos. I have delivered real projects for real clients in Karachi, handled everything from database design to frontend UI, and was nominated as <strong>Student of the Project at APTECH</strong> for building an enterprise-grade system in ASP.NET Core. I am actively looking for a full-time or part-time developer role where I can contribute from day one.</p>
+          <ul class="sum-bullets">
+            <li><strong>Proven with real clients</strong> — delivered a business website for a Karachi-based company; client confirmed satisfaction with the work</li>
+            <li><strong>Recognized technically</strong> — nominated as Student of the Project at APTECH for an enterprise ASP.NET Core order management system</li>
+            <li><strong>Full stack ownership</strong> — I handle frontend, backend, database, and deployment myself, no dependency on others</li>
+            <li><strong>Karachi market experience</strong> — built websites and systems for local businesses, understand local client needs</li>
+            <li><strong>Fast learner</strong> — New tech, no problem — I learn fast, adapt quickly, and get the job done</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WORK EXPERIENCE -->
+      <div class="card">
+        <div class="sec-title">Experience &amp; Projects</div>
+
+        <!-- APTECH PROJECT AWARD — Most important, put FIRST -->
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-title">Enterprise Order Management System — ASP.NET Core</div>
+            <div class="work-badge wb-award">🏆 APTECH Nominated</div>
+          </div>
+          <div class="work-company">Full Stack · ASP.NET Core · C# · SQL Server · MVC</div>
+          <div class="work-date">2025 · APTECH ACCP Prime 2.0 — Nominated: Student of the Project</div>
+          <ul class="work-bullets">
+            <li>Built a <strong>complete enterprise-level order management system</strong> from scratch — this project earned me the Student of the Project nomination at APTECH among my batch</li>
+            <li>System includes full product catalog, shopping cart, multi-step checkout, order lifecycle tracking (placed → confirmed → dispatched → delivered)</li>
+            <li>Admin panel with <strong>role-based access control</strong> — Admin, Staff, and Customer roles with separate dashboards and permissions</li>
+            <li>Implemented <strong>invoice generation, inventory tracking, and sales reporting</strong> with real-time data from SQL Server</li>
+            <li>Designed a <strong>normalized SQL Server database schema</strong> with stored procedures to handle concurrent orders correctly</li>
+          </ul>
+          <div class="award-box">
+            <div class="award-ic">🏆</div>
+            <div class="award-txt">
+              <strong>APTECH Student of the Project — Nominee</strong>
+              This system was selected as one of the best projects in the batch at APTECH Learning North Nazimabad. Recognized for technical depth, clean architecture, and complete feature implementation.
             </div>
+          </div>
+          <div class="work-tags">
+            <span class="wtag">ASP.NET Core MVC</span><span class="wtag">C#</span><span class="wtag">SQL Server</span>
+            <span class="wtag">Role-Based Auth</span><span class="wtag">Admin Dashboard</span><span class="wtag">Invoice System</span>
+          </div>
         </div>
 
-        <div class="cv-body">
-            <!-- PROFESSIONAL SUMMARY -->
-            <div class="cv-section">
-                <h2 class="cv-section-title">Professional Summary</h2>
-                <p class="cv-summary">
-                    Results-driven Full Stack Developer with 1 years of experience in Freelancing and building high-performance web applications and mobile solutions. Specialized in eCommerce platforms, mobile applications for iOS and Android, and conversion-focused user interfaces. Successfully delivered 20+ projects with demonstrated ability to optimize website performance by 10x and handle $100K+ monthly transactions. Passionate about leveraging modern technologies to create innovative digital solutions that drive business growth and enhance user experience.
-                </p>
-            </div>
-
-            <!-- TECHNICAL SKILLS -->
-            <div class="cv-section">
-                <h2 class="cv-section-title">Technical Skills</h2>
-                <div class="cv-skills-grid">
-                    <div class="cv-skill-category">
-                        <h4>Frontend Development</h4>
-                        <ul>
-                            <li>HTML5, CSS3, JavaScript</li>
-                            <li>Responsive Web Design</li>
-                            <li>Bootstrap</li>
-                        </ul>
-                    </div>
-                    <div class="cv-skill-category">
-                        <h4>Backend Development</h4>
-                        <ul>
-                            <li>PHP & Laravel</li>
-                            <li>C# & ASP.NET</li>
-                            <li>SQLServer, MySQL</li>
-                            <li>RESTful API Development</li>
-                        </ul>
-                    </div>
-                    <div class="cv-skill-category">
-                        <h4>Mobile Development</h4>
-                        <ul>
-                            <li>iOS Development</li>
-                            <li>Android Development</li>
-                            <li>Mobile UI/UX Design</li>
-                        </ul>
-                    </div>
-                    <div class="cv-skill-category">
-                        <h4>Design & Tools</h4>
-                        <ul>
-                            <li>UI/UX Design Principles</li>
-                            <li>Git, GitHub</li>
-                        </ul>
-                    </div>
-                     <div class="cv-skill-category">
-                        <h4>Microsoft Office</h4>
-                        <ul>
-                            <li>Microsoft Word</li>
-                            <li>Microsoft Excel</li>
-                            <li>Microsoft Powerpoint</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROFESSIONAL EXPERIENCE -->
-            
-            <!-- EDUCATION -->
-            <div class="cv-section">
-                <h2 class="cv-section-title">Education</h2>
-                
-                <div class="cv-education-item">
-                    <div class="cv-item-header">
-                        <div>
-                            <div class="cv-item-title">Advanced Diploma in Software Engineering</div>
-                            <div class="cv-item-company">APTECH Learning North Nazimabad</div>
-                        </div>
-                        <div class="cv-item-date">2023 - 2026</div>
-                    </div>
-                </div>
-
-                <div class="cv-education-item">
-                    <div class="cv-item-header">
-                        <div>
-                            <div class="cv-item-title">Associate Degree of Commerce</div>
-                            <div class="cv-item-company">Karachi University</div>
-                        </div>
-                        <div class="cv-item-date">2024 - 2026</div>
-                    </div>
-                </div>
-
-                <div class="cv-education-item">
-                    <div class="cv-item-header">
-                        <div>
-                            <div class="cv-item-title">Intermediate in Commerce</div>
-                            <div class="cv-item-company">Government College Premier</div>
-                        </div>
-                        <div class="cv-item-date">2022 - 2024</div>
-                    </div>
-                </div>
-
-                <div class="cv-education-item">
-                    <div class="cv-item-header">
-                        <div>
-                            <div class="cv-item-title">Matriculation in Computer Science</div>
-                            <div class="cv-item-company">Karachi Academy School</div>
-                        </div>
-                        <div class="cv-item-date">2020 - 2022</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ACHIEVEMENTS -->
-            <div class="cv-section">
-                <h2 class="cv-section-title">Key Achievements</h2>
-                <ul class="cv-achievements">
-                    <li>Successfully delivered 20+ projects with 98% client satisfaction rate</li>
-                    <li>Built eCommerce platforms handling $100,000+ monthly transactions</li>
-                    <li>Achieved 45% improvement in user retention through UX optimization</li>
-                </ul>
-            </div>
-
-            <!-- ADDITIONAL SKILLS -->
-            <div class="cv-section">
-                <h2 class="cv-section-title">Additional Skills & Interests</h2>
-                <div class="cv-skills-grid">
-                    <div class="cv-skill-category">
-                        <h4>Soft Skills</h4>
-                        <ul>
-                            <li>Problem Solving</li>
-                            <li>Team Collaboration</li>
-                            <li>Client Communication</li>
-                            <li>Time Management</li>
-                        </ul>
-                    </div>
-                    <div class="cv-skill-category">
-                        <h4>Languages</h4>
-                        <ul>
-                            <li>English (Fluent)</li>
-                            <li>Urdu (Native)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <!-- CLIENT PROJECT — Textures Co. -->
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-title">Business Website — Textures Co. (Karachi Client)</div>
+            <div class="work-badge wb-client">Live · Client Approved</div>
+          </div>
+          <div class="work-company">Paint &amp; Textures Business · wasiiuddin.netlify.app</div>
+          <div class="work-date">2025 · Delivered for a Karachi-based business client</div>
+          <ul class="work-bullets">
+            <li>Designed and built a <strong>professional business website for a real Karachi client</strong> running a paint and textures business</li>
+            <li>Included product showcase, service listings, WhatsApp contact integration, and a clean mobile-responsive layout</li>
+            <li>Client gave <strong>positive feedback</strong> on the design and said the website represented their business well</li>
+            <li>Fully SEO-structured — meta tags, semantic HTML, fast load time — to help the business appear in local Google searches</li>
+          </ul>
+          <div class="quote-box">
+            <div class="quote-txt">"Amazing" — <strong>Client feedback, Textures Co., Karachi</strong></div>
+          </div>
+          <div class="work-tags">
+            <span class="wtag">HTML5</span><span class="wtag">CSS3</span><span class="wtag">JavaScript</span>
+            <span class="wtag">SEO</span><span class="wtag">WhatsApp Integration</span><span class="wtag">Responsive</span>
+          </div>
         </div>
+
+        <!-- MOBILE APP -->
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-title">Cross-Platform Mobile App — BabyEss Shop</div>
+            <div class="work-badge wb-active">Live</div>
+          </div>
+          <div class="work-company">Flutter · Dart · iOS &amp; Android · babyesshop.netlify.app</div>
+          <div class="work-date">2025 · Deployed and live</div>
+          <ul class="work-bullets">
+            <li>Built a <strong>complete mobile shopping app</strong> for baby products using Flutter and Dart — single codebase running on both iOS and Android</li>
+            <li>Includes product listings, shopping cart, order management, and a full <strong>admin panel</strong> for inventory control</li>
+            <li>Demonstrates ability to independently build, test, and deploy a mobile app end-to-end</li>
+          </ul>
+          <div class="work-tags">
+            <span class="wtag">Flutter</span><span class="wtag">Dart</span>
+            <span class="wtag or">iOS</span><span class="wtag or">Android</span><span class="wtag">Admin Panel</span>
+          </div>
+        </div>
+
+        <!-- FREELANCE GENERAL -->
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-title">Freelance Web &amp; App Developer</div>
+            <div class="work-badge wb-active">Active</div>
+          </div>
+          <div class="work-company">Self-Employed · Karachi, Pakistan</div>
+          <div class="work-date">2025 – Present</div>
+          <ul class="work-bullets">
+            <li>Built 10+ projects independently — websites, eCommerce stores, mobile apps, admin dashboards, REST APIs</li>
+            <li>Handled full project lifecycle alone: requirements gathering, UI design, development, testing, and deployment</li>
+            <li>Tech used across projects: PHP, MySQL, Laravel, ASP.NET, Flutter, React, HTML/CSS, JavaScript</li>
+            <li>All projects are <strong>live and publicly accessible</strong> — portfolio and GitHub available for review</li>
+          </ul>
+          <div class="work-tags">
+            <span class="wtag">PHP</span><span class="wtag">MySQL</span><span class="wtag">Laravel</span>
+            <span class="wtag">ASP.NET</span><span class="wtag">Flutter</span><span class="wtag">React</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECTS GRID -->
+      <div class="card">
+        <div class="sec-title">Live Projects — All Publicly Viewable</div>
+        <div class="proj-grid">
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">Enterprise Order Management System</div><span class="proj-cat pc-e">🏆 APTECH</span></div>
+            <p class="proj-desc">Full ASP.NET Core MVC system — role-based admin, checkout, invoice, SQL Server. APTECH Student of the Project nominee.</p>
+            <div class="proj-tech"><span class="pt">ASP.NET Core</span><span class="pt">C#</span><span class="pt">SQL Server</span><span class="pt">Admin Panel</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">Textures Co. — Client Website</div><span class="proj-cat pc-w">Client ✓</span></div>
+            <p class="proj-desc">Real client project for a Karachi paint business. Client gave positive feedback. Live and running.</p>
+            <div class="proj-tech"><span class="pt">HTML/CSS</span><span class="pt">JS</span><span class="pt">SEO</span></div>
+            <a class="proj-link" href="https://wasiiuddin.netlify.app" target="_blank"></a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">BabyEss Shop — Mobile App</div><span class="proj-cat pc-m">Mobile App</span></div>
+            <p class="proj-desc">Cross-platform baby products app — Flutter/Dart, cart, orders, admin panel. Runs on iOS &amp; Android.</p>
+            <div class="proj-tech"><span class="pt">Flutter</span><span class="pt">Dart</span><span class="pt">iOS</span><span class="pt">Android</span></div>
+            <a class="proj-link" href="https://babyesshop.netlify.app" target="_blank"></a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">Fashion eCommerce Platform</div><span class="proj-cat pc-e">eCommerce</span></div>
+            <p class="proj-desc">Complete store with product catalog, cart, checkout, admin dashboard, and order processing.</p>
+            <div class="proj-tech"><span class="pt">PHP</span><span class="pt">MySQL</span><span class="pt">JS</span></div>
+            <a class="proj-link" href="https://abdullahansari114.github.io/Ecommerce-Website/" target="_blank"></a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">Sales Analytics Dashboard</div><span class="proj-cat pc-d">Dashboard</span></div>
+            <p class="proj-desc">Real-time KPI tracking UI with revenue charts and performance analytics panels.</p>
+            <div class="proj-tech"><span class="pt">HTML/CSS</span><span class="pt">JS</span><span class="pt">Charts</span></div>
+            <a class="proj-link" href="https://abdullahansari114.github.io/Sales-Dashboard/" target="_blank"></a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">SecureX — CCTV Business Site</div><span class="proj-cat pc-w">Web</span></div>
+            <p class="proj-desc">CCTV installation business website with service packages, coverage areas, and professional trust-focused design.</p>
+            <div class="proj-tech"><span class="pt">HTML/CSS</span><span class="pt">JS</span><span class="pt">SEO</span></div>
+            <a class="proj-link" href="https://abdullahansari114.github.io/Secure-X/" target="_blank"></a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">SkyWings Travel Agency</div><span class="proj-cat pc-w">Web</span></div>
+            <p class="proj-desc">Travel portal with tour packages, destination showcase, and booking inquiry flow.</p>
+            <div class="proj-tech"><span class="pt">HTML/CSS</span><span class="pt">JS</span><span class="pt">Bootstrap</span></div>
+            <a class="proj-link" href="https://abdullahansari114.github.io/SKYWINGS/" target="_blank"></a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head"><div class="proj-name">TastyBite Food Delivery</div><span class="proj-cat pc-m">Web App</span></div>
+            <p class="proj-desc">Food ordering website with menu management, category browsing, and order flow.</p>
+            <div class="proj-tech"><span class="pt">HTML/CSS</span><span class="pt">JavaScript</span></div>
+            <a class="proj-link" href="https://abdullahansari114.github.io/Premium-Food-Website/" target="_blank"></a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="card">
+        <div class="sec-title">Education</div>
+        <div class="edu-item">
+          <div class="edu-yr">2024 – 2026</div>
+          <div>
+            <div class="edu-deg">Advanced Diploma in Software Engineering</div>
+            <div class="edu-school">APTECH Learning North Nazimabad · ACCP Prime 2.0</div>
+            <div class="edu-note">🏆 Nominated: Student of the Project — ASP.NET Core Enterprise System · Currently In Semester 6</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-yr">2024 – 2025</div>
+          <div>
+            <div class="edu-deg">Associate Degree of Commerce</div>
+            <div class="edu-school">University of Karachi · In Progress</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-yr">2022 – 2024</div>
+          <div>
+            <div class="edu-deg">Intermediate in Commerce (HSSC)</div>
+            <div class="edu-school">Government College Premier, Karachi</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-yr">2020 – 2022</div>
+          <div>
+            <div class="edu-deg">Matriculation in Computer Science (SSC)</div>
+            <div class="edu-school">Karachi Academy School</div>
+          </div>
+        </div>
+      </div>
+
+     
     </div>
+
+    <!-- SIDEBAR -->
+    <div class="col-side">
+
+      <div class="card-sm">
+        <div class="sec-title-sm">Technical Skills</div>
+        <div class="skill-group">
+          <div class="sg-label">Frontend</div>
+          <div class="chips"><span class="chip hot">HTML5</span><span class="chip hot">CSS3</span><span class="chip hot">JavaScript</span><span class="chip">React</span><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Backend</div>
+          <div class="chips"><span class="chip hot">ASP.NET Core</span><span class="chip hot">C#</span><span class="chip hot">PHP</span><span class="chip">Laravel</span><span class="chip">REST API</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Database</div>
+          <div class="chips"><span class="chip hot">SQL Server</span><span class="chip hot">MySQL</span><span class="chip">MongoDB</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Mobile &amp; Cloud</div>
+          <div class="chips"><span class="chip hot">Flutter</span><span class="chip hot">Dart</span><span class="chip">Android</span><span class="chip">iOS</span><span class="chip">Azure</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Tools</div>
+          <div class="chips"><span class="chip">Git/GitHub</span><span class="chip">Figma</span><span class="chip">SEO</span><span class="chip">UI/UX</span><span class="chip">Agile</span></div>
+        </div>
+      </div>
+
+      <div class="card-sm">
+        <div class="sec-title-sm">Proficiency</div>
+        <div class="prof-item"><div class="prof-head"><span class="prof-nm">HTML &amp; CSS</span><span class="prof-pct">95%</span></div><div class="prof-track"><div class="prof-fill" style="width:95%"></div></div></div>
+        <div class="prof-item"><div class="prof-head"><span class="prof-nm">ASP.NET / C#</span><span class="prof-pct">90%</span></div><div class="prof-track"><div class="prof-fill" style="width:90%"></div></div></div>
+        <div class="prof-item"><div class="prof-head"><span class="prof-nm">SQL / Database</span><span class="prof-pct">90%</span></div><div class="prof-track"><div class="prof-fill" style="width:90%"></div></div></div>
+        <div class="prof-item"><div class="prof-head"><span class="prof-nm">React / Angular</span><span class="prof-pct">85%</span></div><div class="prof-track"><div class="prof-fill" style="width:85%"></div></div></div>
+        <div class="prof-item"><div class="prof-head"><span class="prof-nm">Flutter / Dart</span><span class="prof-pct">85%</span></div><div class="prof-track"><div class="prof-fill" style="width:85%"></div></div></div>
+        <div class="prof-item"><div class="prof-head"><span class="prof-nm">PHP / Laravel</span><span class="prof-pct">80%</span></div><div class="prof-track"><div class="prof-fill" style="width:80%"></div></div></div>
+        <div class="prof-item"><div class="prof-head"><span class="prof-nm">JavaScript</span><span class="prof-pct">80%</span></div><div class="prof-track"><div class="prof-fill" style="width:80%"></div></div></div>
+      </div>
+
+      <!-- REAL ACHIEVEMENTS ONLY -->
+      <div class="card-sm">
+        <div class="sec-title-sm">Achievements</div>
+        <div class="ach-list">
+          <div class="ach-card gold">
+            <div class="ach-ic gold">🏆</div>
+            <div class="ach-txt">
+              <strong class="gold">APTECH Student of the Project</strong>
+              Nominated at APTECH North Nazimabad for building an enterprise ASP.NET Core order management system — selected among the best in the batch
+            </div>
+          </div>
+          <div class="ach-card gold">
+            <div class="ach-ic gold">💬</div>
+            <div class="ach-txt">
+              <strong class="gold">Client-Verified Work</strong>
+              Textures Co. client (Karachi) confirmed satisfaction — "Amazing" — on delivery of their business website
+            </div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-ic">🚀</div>
+            <div class="ach-txt">
+              <strong>10+ Live Projects</strong>
+              Every project is publicly accessible — portfolio, GitHub, and live links available for any interviewer to verify
+            </div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-ic">📱</div>
+            <div class="ach-txt">
+              <strong>Mobile App Deployed</strong>
+              Built and deployed a cross-platform Flutter app (BabyEss Shop) independently — live on both iOS and Android
+            </div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-ic">⚡</div>
+            <div class="ach-txt">
+              <strong>Full Stack, Solo</strong>
+              Handle frontend, backend, database, and deployment alone — no team dependency, no bottlenecks
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sm">
+        <div class="sec-title-sm">APTECH ACCP Prime 2.0</div>
+        <div class="aptech-sems">
+          <div class="sem-row"><span class="sem-num">S1</span><div class="sem-chips"><span class="sem-chip">HTML/CSS</span><span class="sem-chip">Bootstrap</span><span class="sem-chip">jQuery</span><span class="sem-chip">SEO</span></div></div>
+          <div class="sem-row"><span class="sem-num">S2</span><div class="sem-chips"><span class="sem-chip">PHP</span><span class="sem-chip">Laravel</span><span class="sem-chip">MySQL</span><span class="sem-chip">Git</span></div></div>
+          <div class="sem-row"><span class="sem-num">S3</span><div class="sem-chips"><span class="sem-chip hot">C#</span><span class="sem-chip hot">ASP.NET</span><span class="sem-chip">SQL Server</span><span class="sem-chip">Angular</span></div></div>
+          <div class="sem-row"><span class="sem-num">S4</span><div class="sem-chips"><span class="sem-chip hot">Flutter</span><span class="sem-chip hot">Dart</span><span class="sem-chip">Azure</span><span class="sem-chip">Agile</span></div></div>
+          <div class="sem-row"><span class="sem-num">S5</span><div class="sem-chips"><span class="sem-chip hot">React</span><span class="sem-chip hot">MongoDB</span><span class="sem-chip hot">MERN</span></div></div>
+          <div class="sem-row"><span class="sem-num">S6</span><div class="sem-chips"><span class="sem-chip">AI/ML</span><span class="sem-chip">Big Data</span><span class="sem-chip">Tableau</span></div></div>
+        </div>
+      </div>
+
+      <div class="card-sm">
+        <div class="sec-title-sm">Soft Skills</div>
+        <div class="soft-grid">
+          <div class="soft-item">Self-Managed</div>
+          <div class="soft-item">Problem Solving</div>
+          <div class="soft-item">Client Communication</div>
+          <div class="soft-item">On-Time Delivery</div>
+          <div class="soft-item">Team Collaboration</div>
+          <div class="soft-item">Fast Learner</div>
+          <div class="soft-item">Detail-Oriented</div>
+          <div class="soft-item">Honest &amp; Reliable</div>
+        </div>
+      </div>
+
+      <div class="card-sm">
+        <div class="sec-title-sm">Languages</div>
+        <div class="lang-item">
+          <span class="lang-nm">Urdu</span>
+          <div class="lang-dots"><div class="ldot fill"></div><div class="ldot fill"></div><div class="ldot fill"></div><div class="ldot fill"></div><div class="ldot fill"></div></div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-nm">English</span>
+          <div class="lang-dots"><div class="ldot fill"></div><div class="ldot fill"></div><div class="ldot fill"></div><div class="ldot fill"></div><div class="ldot"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

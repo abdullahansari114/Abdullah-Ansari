@@ -1,21 +1,3 @@
-# robots.txt for https://abdullahansarii.netlify.app/
-
 User-agent: *
 Allow: /
-Allow: /index.html
-Allow: /about.html
-Allow: /skills.html
-Allow: /projects.html
-Allow: /contact.html
-Allow: /cv.html
-Allow: /assets/
-
-Disallow: /assets/temp/
-Disallow: /private/
-
-# Sitemap location
 Sitemap: https://abdullahansarii.netlify.app/sitemap.xml
-
-# Crawl-delay for better server performance
-
-Crawl-delay: 1

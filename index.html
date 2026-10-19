@@ -1231,6 +1231,89 @@ footer{background:rgba(10,10,26,0.85);padding:40px clamp(20px,6vw,80px);border-t
   .btn-c{width:100%;justify-content:center;}
   .h-card-wrap{width:min(240px,85%);}
 }
+
+
+ /* ===== LOW BRIGHTNESS FIX (soft) ===== */
+:root{
+  --grid-color: rgba(0,255,255,.09);   /* original .06, pehle wala fix .14 */
+  --text-dim: rgba(205,205,255,.62);   /* original .5 */
+}
+
+/* Bahut halki glow */
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(0,255,255,.05), transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(80,120,255,.05), transparent 45%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Sections ka overlay thoda hi kam */
+#about,#projects,#faq,#contact,#why{ background: rgba(13,13,34,.35) !important; }
+#services,#education,#pricing,#process,footer{ background: rgba(10,10,26,.30) !important; }
+
+/* Card borders halke se wazeh */
+.pc,.svc-c,.why-c,.proc-c,.prc-c,.ti-box,.curr-box,.ctc-item,.c-form{
+  border-color: rgba(0,255,255,.11) !important;
+}
+
+#hc{ opacity:.45; }
+
+@media(max-width:768px){
+  :root{ --grid-color: rgba(0,255,255,.12); }
+}
+
+
+/* Marquee fix */
+.mq-track,
+.about-mq-track{
+  width:max-content;
+  will-change:transform;
+}
+
+
+/* Marquee speed */
+.mq-track{ animation-duration:140s !important; }
+.about-mq-track{ animation-duration:45s !important; }
+@media(max-width:768px){
+  .mq-track{ animation-duration:110s !important; }
+  .about-mq-track{ animation-duration:35s !important; }
+} 
+
+ /* ===== MARQUEE STRIP: dark background ===== */
+.mq-wrap{
+  background: linear-gradient(90deg,
+    rgba(5,5,20,.85) 0%,
+    rgba(13,13,34,.75) 50%,
+    rgba(5,5,20,.85) 100%) !important;
+  border-top: 1px solid rgba(0,255,255,.18) !important;
+  border-bottom: 1px solid rgba(0,255,255,.18) !important;
+  padding: 18px 0 !important;
+  position: relative;
+  z-index: 1;
+}
+.mq-item{
+  color: rgba(200,200,255,.38) !important;   /* text thora zyada clear, 0.25 se 0.38 */
+}
+
+/* ===== HERO ke neeche wala khali hissa: baqi sections jaisa background ===== */
+#hero{
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 55%,
+    rgba(13,13,34,.45) 100%
+  ) !important;
+}
+
+/* Marquee aur About ke bichay ka gap */
+.mq-wrap + #about{
+  background: rgba(13,13,34,.55) !important;
+  border-top: 1px solid rgba(0,255,255,.08);
+}
 </style>
 </head>
 <body>
@@ -1389,6 +1472,8 @@ footer{background:rgba(10,10,26,0.85);padding:40px clamp(20px,6vw,80px);border-t
           <div class="skill-icon-chip"><svg class="si" viewBox="0 0 24 24" fill="#FF2D20"><path d="M23.642 5.43a.364.364 0 01.014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 01-.188.326L9.93 23.949a.316.316 0 01-.066.027c-.008.002-.016.008-.024.01a.348.348 0 01-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 01-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 01.023-.058c.004-.013.015-.022.022-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034h.002L4.922.079a.375.375 0 01.376 0L9.221 2.44h.002c.014.01.027.022.04.033l.038.027c.013.014.02.03.033.045.008.011.019.02.023.033.01.02.017.038.023.058.003.013.01.02.013.032.01.032.015.065.015.098v9.652l3.76-2.164V5.53c0-.033.004-.066.013-.098.004-.012.01-.02.014-.032a.402.402 0 01.023-.058c.007-.013.016-.022.023-.033.013-.015.022-.03.034-.045.012-.01.025-.018.037-.027.014-.012.026-.024.041-.034h.001l4.923-2.363a.375.375 0 01.376 0l4.923 2.363c.015.01.028.022.042.034.012.01.025.018.036.027.013.015.022.03.034.045.008.011.018.02.023.033.01.02.016.038.022.058.004.012.011.02.014.032z"/></svg>Laravel</div>
           <div class="skill-icon-chip"><svg class="si" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#1E293B"/><text x="4" y="16" font-size="7" fill="#00FFFF" font-family="Arial" font-weight="bold">MERN</text></svg>MERN Stack</div>
           <div class="skill-icon-chip"><svg class="si" viewBox="0 0 24 24" fill="#3F7EBC"><path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.585-3.801 13.428-10.374C24.744 6.955 20.1.943 13.527.099zm3.94 5.228c.447 0 .879.143 1.24.409l-8.8 8.8a1.944 1.944 0 01-.409-1.24c0-1.075.875-1.95 1.95-1.95.447 0 .879.143 1.24.409l6.6-6.6a1.944 1.944 0 011.179-.413V5.327zm-11.21 5.253a1.944 1.944 0 011.95 1.95 1.944 1.944 0 01-1.95 1.95 1.944 1.944 0 01-1.95-1.95 1.944 1.944 0 011.95-1.95z"/></svg>REST API</div>
+         <div class="skill-icon-chip"><svg class="si" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#1E293B"/><text x="3" y="16" font-size="9" fill="#00FFFF" font-family="Arial" font-weight="bold">Ex</text></svg>Express.js</div>
+<div class="skill-icon-chip"><svg class="si" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#339933"/><text x="3" y="16" font-size="9" fill="white" font-family="Arial" font-weight="bold">JS</text></svg>Node.js</div>
         </div>
       </div>
       <div class="skills-category" style="margin-top:14px;">
@@ -1520,8 +1605,8 @@ footer{background:rgba(10,10,26,0.85);padding:40px clamp(20px,6vw,80px);border-t
     ctx.fillStyle='rgba(5,5,20,0.6)';
     ctx.fillRect(0,0,W,H);
 
-    const cx=W/2,cy=H/2;
-    const R=Math.min(W,H)*0.32;
+    const cx=W/2,cy=H/2-10;
+const R=Math.min(W,H)*0.27;
     const ang=t*0.4;
 
     // glow
@@ -1587,7 +1672,7 @@ footer{background:rgba(10,10,26,0.85);padding:40px clamp(20px,6vw,80px);border-t
     const nfs=Math.max(10,Math.min(13,W*0.044));
     ctx.font=`${nfs}px Space Grotesk,sans-serif`;
     ctx.fillStyle='rgba(0,255,255,0.6)';
-    ctx.fillText('Full Stack Developer',cx,H-20);
+    ctx.fillText('Full Stack Developer',cx,H-10);
 
     t++;
     requestAnimationFrame(draw);
@@ -1655,8 +1740,8 @@ footer{background:rgba(10,10,26,0.85);padding:40px clamp(20px,6vw,80px);border-t
           <div class="sk-item"><div class="sk-top"><span class="sk-nm">ASP.NET / C#</span><span class="sk-pc">90%</span></div><div class="sk-track"><div class="sk-bar" data-w="90"></div></div></div>
           <div class="sk-item"><div class="sk-top"><span class="sk-nm">React / Angular / TypeScript</span><span class="sk-pc">90%</span></div><div class="sk-track"><div class="sk-bar" data-w="90"></div></div></div>
           <div class="sk-item"><div class="sk-top"><span class="sk-nm">Mobile (Android / iOS / Flutter)</span><span class="sk-pc">85%</span></div><div class="sk-track"><div class="sk-bar" data-w="85"></div></div></div>
-          <div class="sk-item"><div class="sk-top"><span class="sk-nm">PHP & Laravel</span><span class="sk-pc">80%</span></div><div class="sk-track"><div class="sk-bar" data-w="80"></div></div></div>
-          <div class="sk-item"><div class="sk-top"><span class="sk-nm">MySQL / SQL Server</span><span class="sk-pc">90%</span></div><div class="sk-track"><div class="sk-bar" data-w="90"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-nm">PHP & Laravel / Express</span><span class="sk-pc">80%</span></div><div class="sk-track"><div class="sk-bar" data-w="80"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-nm">MySQL / SQL Server / MongoDB</span><span class="sk-pc">90%</span></div><div class="sk-track"><div class="sk-bar" data-w="90"></div></div></div>
           <div class="sk-item"><div class="sk-top"><span class="sk-nm">JavaScript</span><span class="sk-pc">80%</span></div><div class="sk-track"><div class="sk-bar" data-w="80"></div></div></div>
         </div>
         <div class="rv rv-d2" style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;">
@@ -1737,13 +1822,15 @@ footer{background:rgba(10,10,26,0.85);padding:40px clamp(20px,6vw,80px);border-t
     <p class="ss rv rv-d2">20+ projects delivered. Here are the highlights.</p>
     <div class="proj-g">
      <div class="pc rv"><div class="pi"><img src="assets/img/eventsphere.jfif" alt="eCommerce" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">Event Sphere — Event Management Platform</div><div class="pd">Full-stack event management platform with role-based dashboards for admin, exhibitors and attendees: event creation, booth floor-plan builder, exhibitor applications, session scheduling, QR event passes, live analytics, real-time messaging and an AI chat assistant.</div><a href="https://eventsspheree.vercel.app/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
-      <div class="pc rv"><div class="pi"><img src="assets/img/ecommerce.png" alt="eCommerce" onerror="this.style.display='none'"><div class="pi-em">🛒</div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">eCommerce Platform</div><div class="pd">Complete fashion eCommerce platform with admin dashboard, inventory management, payment gateway & order tracking.</div><a href="https://abdullahansari114.github.io/Ecommerce-Website/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
+     <div class="pc rv"><div class="pi"><img src="assets/img/javaflorist.png" alt="javaflorist" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">Java Florist — Online Flower Shop (ASP.NET MVC)</div><div class="pd">Online florist store built on ASP.NET with occasion-based shopping, cart and checkout flow, user accounts, live notifications, order tracking and a secure admin dashboard.</div><a href="https://javaflorist.somee.com/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
+      <div class="pc rv"><div class="pi"><img src="assets/img/ecommerce.png" alt="eCommerce" onerror="this.style.display='none'"><div class="pi-em">🛒</div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">eCommerce Platform</div><div class="pd">Complete fashion eCommerce platform with admin dashboard, inventory management, payment gateway & order tracking.</div><a href="https://multishopp.wuaze.com/?i=1" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
         <div class="pc rv rv-d1"><div class="pi"><img src="assets/img/client-textures.png" alt="Car Rental" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">Textures Co. — Client Project</div><div class="pd">Custom website built for a client's paint & textures business, featuring product showcase, service listings & a clean responsive design.</div><a href="https://wasiiuddin.netlify.app/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
+     <div class="pc rv"><div class="pi"><img src="assets/img/moviebooking.png" alt="javaflorist" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">Movie Flix — Movie Ticket Booking System</div><div class="pd">Cinema ticket booking platform with seat selection, secure login, PDF e-tickets and a full admin panel for movies, theatres, bookings and sales reports.</div><a href="https://moviebooking.kesug.com/?i=1" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
       <div class="pc rv rv-d2"><div class="pi"><img src="assets/img/travelagency.png" alt="Travel" onerror="this.style.display='none'"><div class="pi-em">✈️</div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">SkyWings Travel Agency</div><div class="pd">Full-featured travel agency website with flight booking, destination showcases, tour packages & stunning visual design.</div><a href="https://abdullahansari114.github.io/SKYWING/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
        <div class="pc rv rv-d1"><div class="pi"><img src="assets/img/mobileapp.png" alt="Car Rental" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">BabyEss Shop — Mobile App</div><div class="pd">Full-featured baby products mobile app with admin panel, product listings, cart, order management & seamless shopping experience.</div><a href="https://babyesshop.netlify.app/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
        <div class="pc rv rv-d2"><div class="pi"><img src="assets/img/cctv.png" alt="Travel" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">CCTV Security Website</div><div class="pd">Built a complete security website for a CCTV installation business — featuring service packages, camera specs, coverage areas & a professional design that builds client trust.</div><a href="https://abdullahansari114.github.io/Secure-X/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
       <div class="pc rv rv-d1"><div class="pi"><img src="assets/img/carrental.png" alt="Car Rental" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">Car Rental Website</div><div class="pd">Sleek car rental landing page with vehicle showcase & modern responsive design.</div><a href="https://abdullahansari114.github.io/Car-Rental-Website/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
-      <div class="pc rv"><div class="pi"><img src="assets/img/dashboard.png" alt="Dashboard" onerror="this.style.display='none'"><div class="pi-em">📊</div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">Sales Dashboard</div><div class="pd">Analytics dashboard with real-time data visualization and KPI tracking.</div><a href="https://abdullahansari114.github.io/Sales-Dashboard/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
+       <div class="pc rv"><div class="pi"><img src="assets/img/crm.png" alt="javaflorist" onerror="this.style.display='none'"><div class="pi-em"></div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">CareTrack: Therapy Practice CRM (Demo)</div><div class="pd">Demo CRM for therapy clinics with patient profiles, session scheduling, billing and an analytics dashboard, plus a symptom-matching assistant that suggests the right therapist. Built with simulated data.</div><a href="https://caretrackcrm.netlify.app/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
       <div class="pc rv rv-d1"><div class="pi"><img src="assets/img/watch.png" alt="Watch" onerror="this.style.display='none'"><div class="pi-em">⌚</div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">Premium Watch Website</div><div class="pd">Luxury e-catalog with elegant design and premium brand aesthetics.</div><a href="https://abdullahansari114.github.io/Watch/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
       <div class="pc rv rv-d2"><div class="pi"><img src="assets/img/TastyBite – Modern Food Delivery Website.png" alt="Food" onerror="this.style.display='none'"><div class="pi-em">🍔</div><div class="pi-ov"></div><div class="pi-live"><div class="pi-ld"></div>Live</div></div><div class="pb"><div class="pt">TastyBite Food Delivery</div><div class="pd">Modern food delivery website with ordering system and appetizing design.</div><a href="https://abdullahansari114.github.io/Premium-Food-Website/" target="_blank" rel="noopener" class="plnk">View Live →</a></div></div>
     </div>
@@ -2444,17 +2531,17 @@ const cv=document.getElementById('hc');
 const ctx=cv.getContext('2d');
 let W,H,pts=[];
 function rsz(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;initPts();}
-function initPts(){pts=[];const n=Math.floor(W*H/14000);for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3});}
+function initPts(){pts=[];const n=Math.floor(W*H/(W<768?35000:14000));for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3});}
 function drawCv(){
   ctx.clearRect(0,0,W,H);
-  pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(0,255,255,.3)';ctx.fill();});
-  pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<100){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(0,255,255,${.1*(1-d/100)})`;ctx.lineWidth=.5;ctx.stroke();}}));
+  pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(0,255,255,.4)';ctx.fill();});
+  pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<100){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(0,255,255,${.15*(1-d/100)})`;ctx.lineWidth=.5;ctx.stroke();}}));
   requestAnimationFrame(drawCv);
 }
 rsz();window.addEventListener('resize',rsz);drawCv();
 
 /* ============ MARQUEES ============ */
-const mItems=['HTML5','CSS3','JavaScript','PHP','Laravel','ASP.NET','C#','iOS Dev','Android Dev','Flutter','MySQL','SQL Server','REST APIs','Bootstrap','Angular','TypeScript','React','UI/UX','eCommerce','Full Stack'];
+const mItems=['HTML5','CSS3','JavaScript','PHP','Laravel','ASP.NET','C#','iOS Dev','Android Dev','Flutter','MySQL','SQL Server','REST APIs','Express','Bootstrap','Angular','TypeScript','React','UI/UX','eCommerce','Full Stack'];
 const mqEl=document.getElementById('mq');
 [...mItems,...mItems,...mItems,...mItems,...mItems,...mItems].forEach((t,i)=>{const d=document.createElement('span');d.className='mq-item';d.innerHTML=t+'<span>·</span>';mqEl.appendChild(d);});
 function buildAboutMq(id){
